@@ -41,7 +41,7 @@ export const arrWordsSpanish = [
   "amarillo",
   "malo",
   "bueno",
-  "bonito",
+  "hermoso",
   "fácil",
   "difícil",
   "vacío",
@@ -525,7 +525,7 @@ export const defaultGlossary = [
     "id": 41
   },
   {
-    "entry": "bonito",
+    "entry": "hermoso",
     "translation": "beautiful",
     "isSentence": false,
     "id": 42

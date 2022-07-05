@@ -14,7 +14,11 @@ const Welcome = () => {
       <header className="b-welcome-header">My Glossary</header>
       <main className="b-welcome--main">
         <h1>Aprende idiomas de forma personalizada</h1>
-        <h2>Crea tu propio glosario de palabras u oraciones y practica en base a tus necesidades</h2>
+        <h2>
+          Crea tu propio glosario de palabras u oraciones y nuestro algoritmo de práctica
+          inteligente te las recordará justo antes de que las olvides  
+        </h2>
+        <p>Para desbloquear esta característica es necesario que inicies sesión</p>
 
         <section className="b-welcome-actions">
           <div className="b-welcome-actinons--start b-welcome-actinons--item">

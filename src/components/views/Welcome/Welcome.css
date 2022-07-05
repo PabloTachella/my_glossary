@@ -69,21 +69,26 @@
 }
 
 .b-welcome--main h1 {
-  margin: 25vh 0 0 0;
+  margin: 22vh 0 0 0;
   font-size: 2.5rem;
 }
 
 .b-welcome--main h2 {
   margin-top: 7vh;
+  margin-bottom: 1rem;
   font-weight: 600;
   font-size: 1.5rem;
+}
+
+.b-welcome--main p {
+  font-size: 1.2rem;
 }
 
 .b-welcome-actions {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 .b-welcome-actinons--start {
