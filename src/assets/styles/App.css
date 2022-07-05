@@ -1,0 +1,17 @@
+@import url('./Vars.css');
+
+body {
+  font-family: var(--font);
+  color: var(--color-text);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+@keyframes appear-view-transition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

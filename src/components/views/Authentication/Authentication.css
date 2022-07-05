@@ -1,0 +1,28 @@
+.b-form-authentication--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15vw;
+}
+
+.b-form-authentication--title {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20vh;
+}
+.b-form-authentication--subtitle {
+  text-align: center;
+  margin-top: 3rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .b-form-authentication--container {
+    margin: 0 5vw;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .b-form-authentication--container {
+    margin: 0 15vw;
+  }
+}

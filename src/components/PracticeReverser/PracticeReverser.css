@@ -1,0 +1,33 @@
+.b-practice-reverser--container {
+  display: flex;
+  align-items: center;
+  width: 10rem;
+}
+
+.b-practice-reverser--text {
+  width: 5rem;
+}
+.b-practice-reverser--text_left {
+  text-align: end;
+}
+
+.b-practice-reverser--button {
+  border: 0;
+  background-color: white;
+  margin: 0 5px;
+}
+
+.b-practice-reverser--logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 420px) {
+  .b-practice-reverser--text {
+    display: none;
+  }
+  .b-practice-reverser--container {
+    justify-content: center;
+  }
+}

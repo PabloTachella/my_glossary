@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  --font: 'Fredoka', sans-serif;
+  --color-text: rgba(20, 20, 20, 0.8);
+  --color-border: rgba(180, 180, 180, 0.5);
+  --background-textarea: rgba(200, 200, 200, 0.1);
+  --color-primary: coral;
+  --height-header: 4rem;
+}

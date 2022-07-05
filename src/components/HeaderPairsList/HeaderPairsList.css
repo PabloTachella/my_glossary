@@ -1,0 +1,22 @@
+.b-header-pairs-list--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.b-header-pairs-list--cbox {
+  margin: 0 7px;
+}
+.b-header-pairs-list--cbox-text {
+  margin-left: 6px;
+  font-size: 1.1rem;
+}
+.b-header-pairs-list--options-dropdown-container {
+  width: 10rem;
+}
+
+@media screen and (max-width: 420px) {
+  .b-header-pairs-list--options-dropdown-container {
+    width: 8rem;
+  }
+}
+

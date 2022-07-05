@@ -1,0 +1,48 @@
+.b-button--container {
+  position: absolute;
+  width: 60px;
+  height: 64px;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  color: rgba(0, 0, 0, 0.7);
+}
+.b-nav--img-button__close {
+  position: absolute;
+  right: 1rem;
+  width: 12px;
+  height: 12px;
+  transform: translate(-5px, -11px);
+  animation: appear-button 0.4s forwards;
+}
+.b-nav--img-button__menu {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  transform: translate(-0.6rem, -0.6rem);
+  filter: invert(1);
+}
+
+@keyframes appear-button {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 576px) {
+  .b-button--container {
+    display: none;
+  }
+}

@@ -1,0 +1,69 @@
+.b-practice--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.b-form--sentence {
+  font-size: 1.5rem;
+  border: solid 2px rgba(180, 180, 180, 0.5);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  width: fit-content;
+  padding: 0.5rem;
+}
+
+.b-practice--input-container {
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+
+.b-practice--input-container__skeleton {
+  height: 10rem;
+  margin-bottom: 1rem;
+  border: solid 2px rgba(180, 180, 180, 0.5);
+  border-radius: 1rem;
+}
+
+.b-practice--cell-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px rgba(180, 180, 180, 0.5);
+  border-radius: 1rem;
+  height: 100%;
+}
+
+.b-form--buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.b-form--button-skip {
+  height: 3rem;
+  max-width: 10rem;
+  margin-right: 0.5rem;
+}
+
+.b-form--button-ok {
+  height: 2.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .b-form--sentence {
+    margin-bottom: 1rem;
+  }
+
+  .b-practice--input-container {
+    height: 8rem;
+  }
+
+  .b-practice--title {
+    margin: 2rem 0;
+  }
+
+  .b-form--button-skip {
+    height: 2.5rem;
+    border-radius: 0.8rem;
+  }
+}

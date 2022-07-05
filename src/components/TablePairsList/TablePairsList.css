@@ -1,0 +1,28 @@
+.b-pairs-list-table-container {
+  width: 100%;
+  overflow: auto;
+  height: inherit;
+}
+
+.b-pairs-list-table {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.b-pairs-list-table thead {
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+.b-table--checkbox-container {
+  width: 1rem;
+}
+
+.b-table--row:nth-child(odd) {
+  background-color: rgba(200, 200, 200, 0.3);
+}
+
+.b-table--text-container {
+  padding: 0.4rem;
+}

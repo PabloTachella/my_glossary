@@ -1,0 +1,36 @@
+.b-list-edit-delete--container {
+  padding: 0;
+  width: 100%;
+}
+
+.b-list-edit-delete {
+  display: grid;
+  grid-template-columns: 1fr 1fr fit-content(3rem) fit-content(3rem);
+  grid-column-gap: 1rem;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+/* .b-list-edit-delete--text-container{
+  width: max-content;
+} */
+.b-list-edit-delete--text {
+  border-bottom: solid 2px var(--color-border);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.b-list-edit-delete--button {
+  background-color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: solid 2px var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.b-list-edit-delete--button-icon {
+  width: 1rem;
+  height: 1rem;
+  filter: invert(0.3);
+}

@@ -1,0 +1,9 @@
+.b-select--dropdown {
+  font-family: 'Fredoka', sans-serif;
+  background-color: white;
+  border: solid 2px rgba(180, 180, 180, 0.5);
+  border-radius: 0.5rem;
+  padding: 5px;
+  width: inherit;
+  font-size: 1rem;
+}

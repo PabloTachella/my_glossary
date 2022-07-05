@@ -1,0 +1,85 @@
+.b-practice--container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20vw;
+  animation: appear-view-transition 300ms forwards;
+}
+
+.b-practice--header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+}
+
+.b-practice--logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.b-practice-reverse--container {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.b-practice--title {
+  text-align: start;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.b-practice--subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.b-practice--text {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.b-practice--text-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.b-practice--text-container {
+  height: calc(100vh - 10rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.b-practice--text-container h2 {
+  text-align: center;
+}
+
+@media screen and (min-width: 420px) and (max-width: 500px) {
+  .b-practice--logo {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .b-practice--container {
+    margin: 0 2vw;
+  }
+
+  .b-practice-switch--container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .b-practice--container {
+    margin: 0 10vw;
+  }
+}

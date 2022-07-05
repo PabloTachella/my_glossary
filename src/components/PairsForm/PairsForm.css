@@ -1,0 +1,61 @@
+.b-pairs-form {
+  display: grid;
+  grid-template-columns: auto auto 6rem;
+  grid-column-gap: 1rem;
+  height: 6rem;
+  width: 100%;
+}
+
+.b-pairs-form--button {
+  width: 6rem;
+  background-color: var(--color-primary);
+  border-radius: 1rem;
+  border: none;
+}
+
+.b-pairs-form--img-button {
+  height: 2rem;
+  width: 2rem;
+  filter: invert(1);
+}
+
+.b-pairs-form--button:disabled {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 420px) {
+  .b-pairs-form {
+    grid-template-columns: 1fr 4rem;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  .b-pairs-form {
+    grid-template-columns: 1fr 6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .b-pairs-form {
+    grid-template-areas: "input1 button""input button";
+    grid-template-rows: 6rem 6rem;
+    grid-column-gap: 7px;
+    height: 100%;
+  }
+  .b-pairs-form:first-child {
+    grid-area: input1;
+  }
+  .b-pairs-form:nth-child(2) {
+    grid-area: input;
+  }
+  .b-pairs-form--button {
+    grid-area: button;
+    height: 185px;
+    width: 100%;
+  }
+
+  .b-pairs-form--input-container {
+    margin-bottom: 7px;
+    width: 100%;
+  }
+}

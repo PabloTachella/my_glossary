@@ -1,0 +1,42 @@
+.b-modal-pairs-form--container {
+  position: absolute;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(50, 50, 50, 0.2);
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+.b-modal-pairs-form--card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 60vw;
+  height: 40vh;
+  border-radius: 1rem;
+  border: solid 2px var(--color-border);
+  padding: 0 1rem;
+  background-color: white;
+  position: absolute;
+  top: 75%;
+  right: 50%;
+  transform: translate(50%, -100%);
+  z-index: 3;
+}
+.b-modal-pairs-form--close {
+  padding: 22px 6px 0 1rem;
+  border: none;
+  background-color: white;
+}
+.b-modal-pairs-form--icon {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.6;
+}
+.b-modal-pairs-form--cancel-btn-container {
+  margin-bottom: 1rem;
+}

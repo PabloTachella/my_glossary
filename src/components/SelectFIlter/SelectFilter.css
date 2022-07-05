@@ -1,0 +1,11 @@
+.b-select-filter--container {
+  position: absolute;
+  right: 0;
+  width: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  .b-select-filter--container {
+    width: 8rem;
+  }
+}

@@ -1,0 +1,16 @@
+.b-login-form--container {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.b-login-form--input-container {
+  height: 2.5rem;
+}
+.b-login-form--input {
+  color: rgb(223, 52, 52);
+  margin-left: 0.5rem;
+}
+.b-login-form--button-container {
+  margin-top: 1rem;
+}

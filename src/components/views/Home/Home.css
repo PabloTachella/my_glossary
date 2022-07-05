@@ -1,0 +1,46 @@
+.b-main {
+  margin: 0 15vw;
+  animation: appear-view-transition 300ms forwards;
+}
+
+.b-main-relative-position-container {
+  box-sizing: border-box;
+  min-height: calc(100vh - 11rem);
+  padding-top: 3rem;
+}
+
+.b-main--title {
+  margin: 0 0 3rem 0;
+}
+
+.b-main--language-dropdown-container {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 1rem;
+}
+
+.b-main--language-dropdown_size {
+  width: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  .b-main {
+    margin: 0 2vw;
+  }
+
+  .b-main-relative-position-container {
+    padding-top: 1rem;
+  }
+
+  .b-main--title {
+    margin: 1.2rem 0 1.2rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .b-main {
+    margin: 0 10vw;
+  }
+}
