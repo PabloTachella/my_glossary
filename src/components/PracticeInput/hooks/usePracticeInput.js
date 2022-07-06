@@ -35,7 +35,7 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
   if (isTestMode) {
     b = listToPracticeFiltered[indexPractice] ? listToPracticeFiltered[indexPractice].entry : listToPracticeFiltered[alternativeIndex].entry
   } else b = listToPracticeFiltered[0].entry
-  
+
   const sentence = languages.language1 === language ? a : b
   const translation = languages.language2 === language ? a : b
   const disabledCheck = !input.length > 0
@@ -54,6 +54,16 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
 
     return (() => document.removeEventListener("keydown", handleClickedKey))
   }, [input, translation])
+
+  const preventRecurrences = ({ value, pairsAmount }) => {
+    const random = generateRandomNum(pairsAmount)
+
+    if (value != random) {
+      return random
+    } else {
+      return preventRecurrences({ value, pairsAmount })
+    }
+  }
 
   const checkAnswer = ev => {
     ev?.preventDefault()
@@ -77,7 +87,7 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
           lvlUnderstand: newLvlUnderstand,
           errors: errors === 0 ? prevErrors : prevErrors + 1
         }))
-      } else setIndexPractice(generateRandomNum(listToPracticeFiltered.length))
+      } else setIndexPractice(prev => preventRecurrences({ value: prev, pairsAmount: listToPracticeFiltered.length }))
 
 
       setInput('')
@@ -93,7 +103,7 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
   }
 
   const skipPair = () => {
-    if (isTestMode) setIndexPractice(generateRandomNum(listToPracticeFiltered.length))
+    if (isTestMode) setIndexPractice(prev => preventRecurrences({ value: prev, pairsAmount: listToPracticeFiltered.length }))
     else dispatch(removePracticedElement())
     if (input) setInput('')
     handleFocus()
