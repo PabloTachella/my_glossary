@@ -10,6 +10,7 @@
   top: 0;
   right: 0;
 }
+
 .b-modal-pairs-form--card {
   display: flex;
   flex-direction: column;
@@ -27,16 +28,30 @@
   transform: translate(50%, -100%);
   z-index: 3;
 }
+
 .b-modal-pairs-form--close {
   padding: 22px 6px 0 1rem;
   border: none;
   background-color: white;
 }
+
 .b-modal-pairs-form--icon {
   width: 1rem;
   height: 1rem;
   opacity: 0.6;
 }
+
 .b-modal-pairs-form--cancel-btn-container {
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .b-modal-pairs-form--card {
+    width: 86vw;
+    height: 300px;
+  }
+
+  .b-modal-pairs-form--close {
+    margin-bottom: 0.5rem;
+  }
 }

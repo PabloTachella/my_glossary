@@ -10,7 +10,8 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     setInputsValues(() => {
       let values = {}
       sentenceInCharacters.forEach((char, index) => {
-        if (char === ' ') values[index] = null
+        if (isSign(char)) values[index] = char
+        else if (char === ' ') values[index] = null
         else values[index] = ''
       })
       return { ...values }
@@ -28,6 +29,7 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
 
   useEffect(() => {
     if (input === '') setIndexFocus(0)
+    else if (input.match(/^[¿\?¡\!;\.,:] /)) setIndexFocus(1)
   }, [input])
 
   const getPrevCharacters = ({ wordsInCharacter, index_word }) => {
@@ -38,6 +40,9 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     }
     return prev_chars
   }
+
+  const signs = ['¿', '?', '¡', '!', ',', '.', ';', ':']
+  const isSign = char => signs.includes(char)
 
   const nextCell = ({ value, totalIndex }) => {
     if (value === undefined) setIndexFocus(prev => prev + 1)
@@ -109,6 +114,7 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     inputsValues,
     getPrevCharacters,
     indexFocus,
-    nextCell
+    nextCell,
+    isSign
   }
 }
