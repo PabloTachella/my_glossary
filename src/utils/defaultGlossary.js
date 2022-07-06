@@ -154,7 +154,7 @@ export const arrWordsEnglish = [
   "study",
   "Pepita works in an office",
   "engineer",
-  "acto",
+  "actor",
   "student",
   "black",
   "blue",
@@ -442,7 +442,7 @@ export const defaultGlossary = [
   },
   {
     "entry": "actor",
-    "translation": "acto",
+    "translation": "actor",
     "isSentence": false,
     "id": 28
   },
