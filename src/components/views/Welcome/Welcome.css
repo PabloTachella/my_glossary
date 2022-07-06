@@ -63,7 +63,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 8rem);
+  /* height: calc(100vh - 8rem); */
   margin: 0 15vw;
   text-align: center;
 }
@@ -116,9 +116,7 @@
 }
 
 .b-welcome--footer {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 5vh;
+  margin: 3vh 0;
   display: flex;
   justify-content: center;
   width: 100%;
