@@ -1,6 +1,9 @@
+![](./src/assets/imges/portada-my-glossary.png)
+
 # My Glossary
 
 My Glossary es una aplicación web que sirve de herramienta para esas personas que están en el proceso de aprendizaje de un nuevo idioma.
+
 
 ## ¿Cómo funciona?
 
