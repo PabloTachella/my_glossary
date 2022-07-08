@@ -23,7 +23,7 @@ export const practiceSlice = createSlice({
     statusPractice: 'idle', // 'idle' | 'correct' | 'incorrect'
     listToPractice: [],
     listToPracticeFiltered: [],
-    usedHelp: 0, // Cantidad de ayuda utilizada en la sentencia actual, valor de 0 a 3
+    usedHelp: 0, // Cantidad de ayuda utilizada en la sentencia actual, valor de 0 a 4
     errors: 0, // Nivel de error del usuario en la sentencia actual, valor de 0 a 3
     loadStatus: 'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
     loadError: null,
@@ -69,7 +69,7 @@ export const practiceSlice = createSlice({
       state.usedHelp = action.payload
     },
     incrementUsedHelp: (state, action) => {
-      state.usedHelp = state.usedHelp < 3 ? state.usedHelp + 1 : state.usedHelp
+      state.usedHelp = state.usedHelp < 4 ? state.usedHelp + 1 : state.usedHelp
     },
     incrementErrors: (state, action) => {
       state.errors = state.errors < 3 ? state.errors + 1 : state.errors

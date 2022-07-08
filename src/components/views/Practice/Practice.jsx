@@ -2,16 +2,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import { ToastContainer } from "react-toastify";
 
+import { usePractice } from "./hooks/usePractice";
 import PracticeInput from "../../PracticeInput/PracticeInput";
 import PracticeReverser from "../../PracticeReverser/PracticeReverser";
 import SelectFilter from "../../SelectFIlter/SelectFilter";
 import SwitchCharacterInput from "../../SwitchCharacterInput/SwitchCHaracterInput";
-import './Practice.css'
-
-import { usePractice } from "./hooks/usePractice";
 import ButtonPrimary from "../../ButtonPrimary/ButtonPrimary";
-import { ToastContainer } from "react-toastify";
+import clue from '../../../assets/imges/pista.png'
+import solution from '../../../assets/imges/solucion.png'
+import './Practice.css'
 
 const Practice = () => {
   const navigate = useNavigate()
@@ -27,7 +28,9 @@ const Practice = () => {
     handleFocus,
     focus,
     loadStatus,
-    filter
+    filter,
+    showClue,
+    showSolution
   } = usePractice()
 
   return (
@@ -46,8 +49,16 @@ const Practice = () => {
           </header>
           <div className="b-practice--subheader">
             <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
-            <div className="b-practice-switch--container">
-              <SwitchCharacterInput onChange={handleSwitchCharacterInput} checked={characterMode} />
+            <div className="b-practice-subheader--buttons-container">
+              <div className="b-practice-switch--container">
+                <SwitchCharacterInput onChange={handleSwitchCharacterInput} checked={characterMode} />
+              </div>
+              <button type="button" onClick={showClue} className="b-practice-subheader--button">
+                <img src={clue} alt="clue" className="b-practice-subheader--img-button" />
+              </button>
+              <button type="button" onClick={showSolution} className="b-practice-subheader--button">
+                <img src={solution} alt="solution" className="b-practice-subheader--img-button" />
+              </button>
             </div>
           </div>
           {(listToPracticeFiltered?.length > 0) ?
