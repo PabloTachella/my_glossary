@@ -17,12 +17,18 @@
   outline: none;
   padding: auto;
 }
+
 .b-single-character-input--char::placeholder {
   color: gray;
   opacity: 0;
 }
+
 .b-char__placehold::placeholder {
   opacity: 1;
+}
+
+.b-char__color-red {
+  color: rgba(255, 0, 0, 0.8);
 }
 
 .b-single-character-input--space {

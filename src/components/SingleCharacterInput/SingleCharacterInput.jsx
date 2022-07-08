@@ -9,7 +9,8 @@ const SingleCharacterInput = ({ sentence, handleChangeInput, input }) => {
     inputsValues,
     getPrevCharacters,
     indexFocus,
-    nextCell
+    nextCell,
+    placeHoldersShow
   } = useSingleCharacterInput({ sentence, handleChangeInput, input })
 
   return (
@@ -25,6 +26,7 @@ const SingleCharacterInput = ({ sentence, handleChangeInput, input }) => {
                   prevCharacters={getPrevCharacters({ wordsInCharacter, index_word })}
                   indexFocus={indexFocus}
                   nextCell={nextCell}
+                  placeHoldersShow={placeHoldersShow}
                 />
               </div>
             )

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { useData } from "../../../../hooks/useData"
 import { useForm } from "../../../../hooks/useForm"
-import { setLanguages, setUsedHelp } from "../../../../store/slices/practice"
+import { setLanguages, setUsedHelp, incrementUsedHelp } from "../../../../store/slices/practice"
 
 export const usePractice = () => {
   const myLanguage = 'Español'
@@ -32,9 +32,12 @@ export const usePractice = () => {
     }
   }
 
+  const showClue = () => dispatch(incrementUsedHelp())
+  const showSolution = () => dispatch(setUsedHelp(4))
+
   const existPairs = glossaryData[language]?.length > 0 || listToPracticeFiltered?.length > 0
 
-  const characterMode = usedHelp === 1
+  const characterMode = usedHelp >= 1
 
   return {
     listToPracticeFiltered,
@@ -49,6 +52,8 @@ export const usePractice = () => {
     focus,
     existPairs,
     loadStatus,
-    filter
+    filter,
+    showClue,
+    showSolution
   }
 }

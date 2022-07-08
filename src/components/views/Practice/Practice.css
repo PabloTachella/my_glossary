@@ -38,6 +38,29 @@
   justify-content: space-between;
 }
 
+.b-practice-subheader--buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+.b-practice-subheader--button {
+  border: solid 2px var(--color-border);
+  border-radius: 25%;
+  background-color: inherit;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.b-practice-subheader--button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.b-practice-subheader--img-button {
+  width: 2rem;
+  padding: 2px;
+  opacity: 0.9;
+}
+
 .b-practice--text {
   margin-top: 1rem;
   text-align: center;
@@ -74,6 +97,10 @@
   }
 
   .b-practice-switch--container {
+    display: none;
+  }
+
+  .b-practice-subheader--button {
     display: none;
   }
 }
