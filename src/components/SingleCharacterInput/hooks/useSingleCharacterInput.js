@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { calcCharsToShow, generateIndicesCharsToShow, signs } from "../helpers"
 
 export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) => {
   const [inputsValues, setInputsValues] = useState()
+  const [placeHoldersShow, setPlaceHoldersShow] = useState(sentence.split('').fill(false))
   const [wordsInCharacter, setWordsInCharacter] = useState()
-  const [indexFocus, setIndexFocus] = useState(0)
+  const [indexFocus, setIndexFocus] = useState(input.length <= sentence.length - 1 ? input.length : sentence.length - 1)
+  const { usedHelp } = useSelector(state => state.practice)
 
   useEffect(() => {
     const sentenceInCharacters = sentence.split('')
     setInputsValues(() => {
       let values = {}
+      const arrInput = input.split('')
       sentenceInCharacters.forEach((char, index) => {
-        if (isSign(char)) values[index] = char
-        else if (char === ' ') values[index] = null
+        if (char === ' ') values[index] = null
+        else if (arrInput[index]) values[index] = arrInput[index]
         else values[index] = ''
       })
       return { ...values }
@@ -20,16 +25,39 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     setWordsInCharacter(words.map(word => word.split('')))
   }, [sentence])
 
+  const showSignsAndHelp = (sentence, help) => {
+    const sentenceInCharacters = sentence.split('')
+    setPlaceHoldersShow(prev => {
+      let values = [...prev]
+      const amountCharsToShow = calcCharsToShow(sentenceInCharacters.length, help)
+      const indicesCharsToShow = generateIndicesCharsToShow(sentenceInCharacters, amountCharsToShow, prev)
+
+      if (help === 4) values = values.fill(true)
+      else {
+        sentenceInCharacters.forEach((char, index) => {
+          if (isSign(char)) values[index] = true
+          if (prev[index]) values[index] = true
+          if (indicesCharsToShow.includes(index)) values[index] = true
+        })
+      }
+      return [...values]
+    })
+  }
+
+  useEffect(() => {
+    showSignsAndHelp(sentence, usedHelp)
+  }, [usedHelp, sentence])
+
   useEffect(() => {
     if (inputsValues) {
-      const inputString = Object.values(inputsValues).map(char => char === null ? ' ' : char).join('').trim()
+      const inputString = Object.values(inputsValues).map((char, index) => char === null ? ' ' : char).join('').trim()
       handleChangeInput(inputString)
     }
   }, [inputsValues])
 
   useEffect(() => {
     if (input === '') setIndexFocus(0)
-    else if (input.match(/^[¿\?¡\!;\.,:] /)) setIndexFocus(1)
+    // else setIndexFocus(input.length)
   }, [input])
 
   const getPrevCharacters = ({ wordsInCharacter, index_word }) => {
@@ -41,7 +69,6 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     return prev_chars
   }
 
-  const signs = ['¿', '?', '¡', '!', ',', '.', ';', ':']
   const isSign = char => signs.includes(char)
 
   const nextCell = ({ value, totalIndex }) => {
@@ -49,8 +76,8 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     else {
       setInputsValues(prev => ({ ...prev, [totalIndex]: value.substr(-1) }))
       setIndexFocus(prev => {
-        if (Object.keys(inputsValues).length > totalIndex + 1)
-          if (inputsValues[totalIndex + 1] === null) return prev + 2
+        if (sentence.length > prev + 1) // reviso si no terminó la sentencia
+          if (inputsValues[totalIndex + 1] === null) return prev + 2 // salto a la siguiente palabra
           else return prev + 1
         return prev
       })
@@ -115,6 +142,7 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
     getPrevCharacters,
     indexFocus,
     nextCell,
-    isSign
+    isSign,
+    placeHoldersShow
   }
 }

@@ -40,7 +40,7 @@ const Login = () => {
         statusSendMail === 'succeeded' ?
           <span className="b-login--message">
             Se ha enviado un mail a su correo con un link de acceso, para finalizar el 
-            inicio de sesión. Si no puede visualizarlo <b>revise la carpeta de spam</b>
+            inicio de sesión revise su bandeja de entrada
           </span>
           : statusSendMail === 'failed' &&
           <span>{error}</span>

@@ -7,6 +7,7 @@ const Word = props => {
     prevCharacters,
     indexFocus,
     nextCell,
+    placeHoldersShow
   } = props
 
   return (
@@ -19,6 +20,7 @@ const Word = props => {
             totalIndex={index + prevCharacters}
             focus={indexFocus === index + prevCharacters}
             onChange={nextCell}
+            placeHoldersShow={placeHoldersShow}
           />
         )
       }
