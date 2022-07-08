@@ -87,8 +87,11 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
           lvlUnderstand: newLvlUnderstand,
           errors: errors === 0 ? prevErrors : prevErrors + 1
         }))
-      } else setIndexPractice(prev => preventRecurrences({ value: prev, pairsAmount: listToPracticeFiltered.length }))
 
+      } else {
+        dispatch(resetPracticeValues())
+        setIndexPractice(prev => preventRecurrences({ value: prev, pairsAmount: listToPracticeFiltered.length }))
+      }
 
       setInput('')
       handleFocus()
