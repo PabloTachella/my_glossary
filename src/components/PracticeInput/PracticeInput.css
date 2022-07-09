@@ -13,6 +13,7 @@
 }
 
 .b-practice--input-container {
+  position: relative;
   height: 10rem;
   margin-bottom: 1rem;
 }

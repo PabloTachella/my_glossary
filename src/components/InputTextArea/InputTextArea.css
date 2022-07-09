@@ -5,6 +5,7 @@
   border: solid 2px rgba(180, 180, 180, 0.5);
   border-radius: 1rem;
   padding: 0.5rem;
+  padding-top: 20px;
   resize: none;
   background-color: var(--backgroud-textarea);
   outline: none;
