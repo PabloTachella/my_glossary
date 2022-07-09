@@ -11,22 +11,25 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
 
   useEffect(() => {
     const sentenceInCharacters = sentence.split('')
+
     setInputsValues(() => {
       let values = {}
-      const arrInput = input.split('')
       sentenceInCharacters.forEach((char, index) => {
         if (char === ' ') values[index] = null
-        else if (arrInput[index]) values[index] = arrInput[index]
         else values[index] = ''
       })
       return { ...values }
     })
+
+    setPlaceHoldersShow(sentence.split('').fill(false))
+    
     const words = sentence.split(' ')
     setWordsInCharacter(words.map(word => word.split('')))
   }, [sentence])
 
   const showSignsAndHelp = (sentence, help) => {
     const sentenceInCharacters = sentence.split('')
+
     setPlaceHoldersShow(prev => {
       let values = [...prev]
       const amountCharsToShow = calcCharsToShow(sentenceInCharacters.length, help)
@@ -36,7 +39,7 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
       else {
         sentenceInCharacters.forEach((char, index) => {
           if (isSign(char)) values[index] = true
-          if (prev[index]) values[index] = true
+          if (help > 1 && prev[index]) values[index] = true
           if (indicesCharsToShow.includes(index)) values[index] = true
         })
       }
@@ -49,6 +52,19 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
   }, [usedHelp, sentence])
 
   useEffect(() => {
+    const sentenceInCharacters = sentence.split('')
+
+    setInputsValues(() => {
+      let values = {}
+      sentenceInCharacters.forEach((char, index) => {
+        if (char === ' ') values[index] = null
+        else values[index] = input[index] ? input[index] : ''
+      })
+      return { ...values }
+    })
+  }, [usedHelp])
+
+  useEffect(() => {
     if (inputsValues) {
       const inputString = Object.values(inputsValues).map((char, index) => char === null ? ' ' : char).join('').trim()
       handleChangeInput(inputString)
@@ -57,8 +73,7 @@ export const useSingleCharacterInput = ({ sentence, handleChangeInput, input }) 
 
   useEffect(() => {
     if (input === '') setIndexFocus(0)
-    // else setIndexFocus(input.length)
-  }, [input])
+  }, [input, usedHelp])
 
   const getPrevCharacters = ({ wordsInCharacter, index_word }) => {
     if (index_word === 0) return 0

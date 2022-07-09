@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from 'react-toastify';
 
-import { incrementErrors, removePracticedElement, updatePracticeValues } from "../../../store/slices/practice"
+import { incrementErrors, removePracticedElement, resetPracticeValues, updatePracticeValues } from "../../../store/slices/practice"
 import { generateRandomNum } from "../../../utils/generateRandomNumBetween";
 import { calcRepracticeDate, compareStrings } from '../helpers'
 
@@ -109,6 +109,7 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
     if (isTestMode) setIndexPractice(prev => preventRecurrences({ value: prev, pairsAmount: listToPracticeFiltered.length }))
     else dispatch(removePracticedElement())
     if (input) setInput('')
+    dispatch(resetPracticeValues())
     handleFocus()
   }
 
