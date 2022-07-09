@@ -17,7 +17,7 @@ const Letter = props => {
   }
 
   const classPlaceHolderShow = `${placeHoldersShow[totalIndex] ? 'b-char__placehold' : ''}`
-  const classColorRed = `${placeHoldersShow[totalIndex] && inputsValues[totalIndex] !== char ? 'b-char__color-red' : ''}`
+  const classColorRed = `${placeHoldersShow[totalIndex] && inputsValues[totalIndex] && inputsValues[totalIndex].toLowerCase() !== char.toLowerCase() ? 'b-char__color-red' : ''}`
 
   return (
     <input

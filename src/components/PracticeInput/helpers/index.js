@@ -2,6 +2,7 @@
 // usedHelp: valor de 0 a 3, donde 3 es la mayor cantidad de ayuda posible usada (actualmente 
 // el máximo valor es 1)
 export const calcRepracticeDate = ({ errors, usedHelp, lvlUnderstand }) => {
+  console.log(errors, usedHelp, lvlUnderstand)
   let newLvlUnderstand
   const MS_IN_A_DAY = 86400000
   lvlUnderstand = parseFloat(lvlUnderstand)
@@ -20,10 +21,15 @@ export const calcRepracticeDate = ({ errors, usedHelp, lvlUnderstand }) => {
       newLvlUnderstand = lvlUnderstand < 17 ? 0 : 1
     else
       newLvlUnderstand = 0
+  } else if (usedHelp === 2) {
+    if (errors === 0)
+      newLvlUnderstand = lvlUnderstand < 17 ? 0 : 1
+    else
+      newLvlUnderstand = 0
   } else {
-    alert('Ha ocurrido un error en la validación de la respuesta, por favor contacte al desarrollador')
+    newLvlUnderstand = 0
   }
-  
+
   newLvlUnderstand = newLvlUnderstand.toFixed(2)
   newLvlUnderstand = newLvlUnderstand < 40 ? newLvlUnderstand : 40
   const repracticeDate = Date.now() + (newLvlUnderstand * MS_IN_A_DAY)
@@ -33,7 +39,7 @@ export const calcRepracticeDate = ({ errors, usedHelp, lvlUnderstand }) => {
 
 export const removeAccents = (str) => {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-} 
+}
 
 export const compareStrings = (a, b) => {
   a = a.replace(/[\?\.\!¡¿,;]/g, '') // Elimino signos ¿ ? ¡ ! . , ;
@@ -43,7 +49,7 @@ export const compareStrings = (a, b) => {
 
   a = removeAccents(a)
   b = removeAccents(b)
-  
+
   a = a.toLowerCase().trim()
   b = b.toLowerCase().trim()
   return a == b
