@@ -8,7 +8,7 @@ import { setLanguages, setUsedHelp, incrementUsedHelp } from "../../../../store/
 export const usePractice = () => {
   const myLanguage = 'Español'
   const dispatch = useDispatch()
-  const { languages, listToPracticeFiltered, usedHelp, loadStatus } = useSelector(state => state.practice)
+  const { languages, listToPracticeFiltered, usedHelp, loadStatus, listToPractice } = useSelector(state => state.practice)
   const { language, glossaryData } = useSelector(state => state.glossary)
   const { filter } = useSelector(state => state.myPairs)
   const { entry: input, updateEntry: setInput, focus, handleFocus } = useForm()
@@ -39,6 +39,8 @@ export const usePractice = () => {
 
   const characterMode = usedHelp >= 1
 
+  const remainingPractice = glossaryData[language] ? listToPractice.length : null
+
   return {
     listToPracticeFiltered,
     languages,
@@ -54,6 +56,7 @@ export const usePractice = () => {
     loadStatus,
     filter,
     showClue,
-    showSolution
+    showSolution,
+    remainingPractice
   }
 }

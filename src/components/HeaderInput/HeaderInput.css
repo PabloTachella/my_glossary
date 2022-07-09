@@ -10,6 +10,22 @@
   border-radius: 10px;
 }
 
+.b-header-input--counter-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  color: var(--color-text-placeholder);
+  opacity: 0.7;
+}
+
+.b-header-input--counter {
+  font-weight: 500;
+  margin-left: 4px;
+}
+
 .b-header-input--switch {
   display: flex;
   align-items: center;

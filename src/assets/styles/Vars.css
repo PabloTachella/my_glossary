@@ -3,6 +3,7 @@
 :root {
   --font: 'Fredoka', sans-serif;
   --color-text: rgba(20, 20, 20, 0.8);
+  --color-text-placeholder: rgb(130, 130, 130);
   --color-border: rgba(180, 180, 180, 0.5);
   --background-textarea: rgba(200, 200, 200, 0.1);
   --color-primary: coral;
