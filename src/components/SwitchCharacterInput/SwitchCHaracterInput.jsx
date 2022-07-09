@@ -6,7 +6,7 @@ const SwitchCharacterInput = ({ onChange, checked }) => {
     <>
       <FormControlLabel
         control={<Switch onChange={onChange} checked={checked} />}
-        label="Guiones"
+        label={<span className="b-header-input--switch">Guiones</span>}
         labelPlacement="start"
       />
     </>

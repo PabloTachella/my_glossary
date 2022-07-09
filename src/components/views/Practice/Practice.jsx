@@ -8,10 +8,7 @@ import { usePractice } from "./hooks/usePractice";
 import PracticeInput from "../../PracticeInput/PracticeInput";
 import PracticeReverser from "../../PracticeReverser/PracticeReverser";
 import SelectFilter from "../../SelectFIlter/SelectFilter";
-import SwitchCharacterInput from "../../SwitchCharacterInput/SwitchCHaracterInput";
 import ButtonPrimary from "../../ButtonPrimary/ButtonPrimary";
-import clue from '../../../assets/imges/pista.png'
-import solution from '../../../assets/imges/solucion.png'
 import './Practice.css'
 
 const Practice = () => {
@@ -21,7 +18,6 @@ const Practice = () => {
     existPairs,
     languages,
     reverseThePractrice,
-    handleSwitchCharacterInput,
     characterMode,
     input,
     setInput,
@@ -29,8 +25,6 @@ const Practice = () => {
     focus,
     loadStatus,
     filter,
-    showClue,
-    showSolution
   } = usePractice()
 
   return (
@@ -47,20 +41,7 @@ const Practice = () => {
             </div>
             <SelectFilter />
           </header>
-          <div className="b-practice--subheader">
-            <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
-            <div className="b-practice-subheader--buttons-container">
-              <div className="b-practice-switch--container">
-                <SwitchCharacterInput onChange={handleSwitchCharacterInput} checked={characterMode} />
-              </div>
-              <button type="button" onClick={showClue} className="b-practice-subheader--button">
-                <img src={clue} alt="clue" className="b-practice-subheader--img-button" />
-              </button>
-              <button type="button" onClick={showSolution} className="b-practice-subheader--button">
-                <img src={solution} alt="solution" className="b-practice-subheader--img-button" />
-              </button>
-            </div>
-          </div>
+          <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
           {(listToPracticeFiltered?.length > 0) ?
             <PracticeInput
               characterMode={characterMode}
