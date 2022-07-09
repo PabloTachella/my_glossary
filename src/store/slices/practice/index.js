@@ -80,7 +80,14 @@ export const practiceSlice = createSlice({
       state.statusPractice = 'idle'
       state.listToPractice = []
       state.listToPracticeFiltered = []
-      state.usedHelp = 0
+      state.usedHelp = state.usedHelp >= 1 ? 1 : 0
+      state.errors = 0
+      state.loadStatus = 'idle'
+      state.loadError = null
+    },
+    resetPracticeValues: (state, action) => {
+      state.statusPractice = 'idle'
+      state.usedHelp = state.usedHelp >= 1 ? 1 : 0
       state.errors = 0
       state.loadStatus = 'idle'
       state.loadError = null
@@ -94,11 +101,12 @@ export const practiceSlice = createSlice({
         data.splice(indexToRemove, 1)
         state.listToPractice = data
         state.errors = 0
+        state.usedHelp = state.usedHelp >= 1 ? 1 : 0
       })
       .addCase(updatePracticeValues.rejected, (state, action) => {
         alert('Error al actualizar los valores de practica:', action.error.message)
         state.errors = 0
-        state.usedHelp = 0 // revisar
+        state.usedHelp = state.usedHelp >= 1 ? 1 : 0
       })
       .addCase(getListToPractice.pending, (state, action) => {
         state.loadStatus = 'loading'
@@ -125,6 +133,7 @@ export const {
   setUsedHelp,
   incrementErrors,
   setListToPracticeFiltered,
-  resetPractice
+  resetPractice,
+  resetPracticeValues
 } = practiceSlice.actions
 export default practiceSlice.reducer

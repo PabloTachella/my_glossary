@@ -7,11 +7,11 @@ My Glossary es una aplicación web que sirve de herramienta para esas personas q
 
 ## ¿Cómo funciona?
 
-Los usuarios logueados podrán cargar en la app cada "palabra" u "oración" (a partir de ahora sentencias) que vayan aprendiendo en el día a día. (En caso de necesitarlo cuentan con una sección para poder editar o eliminar las sentencias)
+Los usuarios logueados podrán cargar en la app cada "palabra" u "oración" (a partir de ahora sentencias) que vayan aprendiendo en el día a día. En caso de necesitarlo cuentan con una sección para poder editar o eliminar las sentencias
 
 Una vez que el usuario ha cargado algunas sentencias se le habilita la sección de práctica donde podrá, a través de diferentes modalidades, practicar en base al glosario que el mismo ha creado. Y acá comienza lo interesante...
 
-**Al practicar cada sentencia, tu desempeño será evaluado por un algoritmo que determinará que tanto has fijado ese conocimiento y en base a eso decidirá cuando debe volver a mostrarte esa práctica**
+**Al practicar cada sentencia, su desempeño será evaluado por un algoritmo que determinará que tanto el usuario ha fijado ese conocimiento y en base a eso decidirá cuando debe volver a mostrarle esa práctica**
 
 ### Algoritmo de repetición espaciada
 
@@ -19,16 +19,16 @@ Nuestro algoritmo se basa en un sistema de repetición espaciada. Este sistema s
 Al adquirir un nuevo conocimiento el individuo lo olvidará rápido, por lo que es necesario un pronto repaso que ayude a reforzarlo. 
 Luego de repasarlo, ese tiempo que se tarda en olvidar se vuelve mayor, es decir, esta vez la retención de información durará más, por lo que se puede esperar más tiempo para el próximo repaso. Y así continuamente hasta que el conocimiento sea fijado.
 
-En este punto podrás objetar, que no toda la información se retiene igual, habrán cosas que se recuerden fácilmente y otras que cueste más. Por eso es que nuestro algoritmo analiza tu desempeño durante las prácticas. Identificará en que sentencias venís flojo para hacértelas practicar más seguido y en menor medida te mostrará aquellas que dominas.
+En este punto se podría objetar, que no toda la información se retiene igual, habrán cosas que se recuerden fácilmente y otras que cueste más. Por eso es que nuestro algoritmo analiza el desempeño del usuario durante las prácticas. Identificará en que sentencias está más flojo para hacérselas practicar más seguido, y en menor medida le mostrará aquellas que domina.
 
-Entonces cuando ingreses a la sección de práctica tendrás disponible solo las sentencias que son necesarias repasar hasta el momento y ordenadas según la retención en memoria que el algoritmo determina que tienes sobre cada una de ellas.
+Entonces cuando ingrese a la sección de práctica, el usuario tendrá disponible solo las sentencias que son necesarias repasar hasta el momento y ordenadas según la retención en memoria que el algoritmo determina que el usuario tiene sobre cada una de ellas.
 
 ## Roadmap de próximos features a desarrollar
 
 ### Sección: Practicar
 
-- Botón que revele la respuesta correcta de la práctica en curso
-- Botón que vaya sugiriendo letras cada vez que lo presiones
+- Botón que revele la respuesta correcta de la práctica en curso ✅
+- Botón que vaya sugiriendo letras cada vez que lo presiones ✅
 - Contador de sentencias restan practicar
 - Modalidad de guiones y sugerencias en mobile
 - Que en la corrección no se discrimine si se usaron o no contractions (it's === it is)
@@ -63,7 +63,7 @@ Entonces cuando ingreses a la sección de práctica tendrás disponible solo las
 ## Contribuciones
 
 My Glossary es una aplicación open source 
-Si te interesa lo que hacemos y te gustaría formar parte de él no dudes en contactar a nuestro líder de proyecto: 
+Si te interesa lo que hacemos y te gustaría formar parte no dudes en contactar a nuestro líder de proyecto: 
 - LinkedIn - [Pablo Tachella](https://www.linkedin.com/in/pablo-tachella-dev/) 
 
 Ganá experiencia laboral, trabajá con la metodología Scrum, y manejate en un entorno profesional de GitHub colaborando con un equipo de trabajo de forma organizada. 
