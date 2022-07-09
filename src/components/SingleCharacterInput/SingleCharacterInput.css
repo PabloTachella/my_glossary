@@ -19,7 +19,8 @@
 }
 
 .b-single-character-input--char::placeholder {
-  color: gray;
+  text-align: center;
+  color: var(--color-text-placeholder);
   opacity: 0;
 }
 

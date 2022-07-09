@@ -2,9 +2,10 @@
   font-family: 'Fredoka', sans-serif;
   font-size: 1.2rem;
   color: rgb(50, 50, 50);
-  border: solid 2px rgba(180, 180, 180, 0.5);
+  border: solid 2px var(--color-border);
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 10px;
+  padding-top: 20px;
   resize: none;
   background-color: var(--backgroud-textarea);
   outline: none;
@@ -13,5 +14,5 @@
   box-sizing: border-box;
 }
 .b-form--input::placeholder {
-  color: rgb(130, 130, 130);
+  color: var(--color-text-placeholder);
 }

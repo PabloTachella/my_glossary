@@ -9,6 +9,7 @@ import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import './PracticeInput.css'
 
 import { usePracticeInput } from "./hooks/usePracticeInput";
+import HeaderInput from "../HeaderInput/HeaderInput";
 
 const PracticeInput = ({ characterMode, input, setInput, handleFocus, focus }) => {
   const {
@@ -24,10 +25,8 @@ const PracticeInput = ({ characterMode, input, setInput, handleFocus, focus }) =
   return (
     <form onSubmit={checkAnswer} className="b-practice--form">
       <span className="b-form--sentence">{sentence}</span>
-      {/* <div className="b-form--head">
-        <button type="button" className="b-form--button_hint" onClick={showHint}>PISTA</button>
-      </div> */}
       <div className="b-practice--input-container">
+        <HeaderInput />
         {characterMode ?
           translation &&
           <div className="b-practice--cell-input-container">
