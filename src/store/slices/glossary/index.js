@@ -6,19 +6,19 @@ import { fsUpdateData } from "../../../services/fsUpdateData";
 import getChangesInPairs from "../../../utils/getChangesInPairs";
 
 export const getGlossaryByLanguage = createAsyncThunk(
-  'glossary/getGlossaryByLanguage', async ({ email, language }) => {
-    const { data } = await fsGetGlossaryByLanguage(email, language)
+  'glossary/getGlossaryByLanguage', async ({ uid, language }) => {
+    const { data } = await fsGetGlossaryByLanguage(uid, language)
 
     return { language, data }
   }
 )
 
 export const postData = createAsyncThunk(
-  'glossary/postData', async ({ pairsList, language, email }) => {
+  'glossary/postData', async ({ pairsList, language, uid }) => {
     let listSavedPairs = []
 
     for (const { entry, translation, isSentence } of pairsList) {
-      const savedPair = await fsPostData({ email, entry, translation, isSentence, language })
+      const savedPair = await fsPostData({ uid, entry, translation, isSentence, language })
       listSavedPairs.push(savedPair)
     }
 
@@ -27,14 +27,14 @@ export const postData = createAsyncThunk(
 )
 
 export const updateData = createAsyncThunk(
-  'glossary/updateData', async ({ edits, language, email }) => {
+  'glossary/updateData', async ({ edits, language, uid }) => {
     const updatedPairs = []
 
     for (const { original, edited, id } of edits) {
       // getChangesInPairs retorna un objeto con el/los valores editados
       const changes = getChangesInPairs(original, edited)
 
-      await fsUpdateData({ email, language, changes, id })
+      await fsUpdateData({ uid, language, changes, id })
       updatedPairs.push({ changes, id })
     }
 
@@ -43,10 +43,10 @@ export const updateData = createAsyncThunk(
 )
 
 export const deleteData = createAsyncThunk(
-  'glossary/deleteData', async ({ ids, language, email }) => {
+  'glossary/deleteData', async ({ ids, language, uid }) => {
 
     for (const id of ids) {
-      await fsDeleteData({ email, language, id })
+      await fsDeleteData({ uid, language, id })
     }
 
     return { ids, language }

@@ -3,14 +3,14 @@ import { fsGetListToPractice } from "../../../services/fsGetData";
 import { fsUpdatePracticeValues } from "../../../services/fsUpdateData";
 
 export const getListToPractice = createAsyncThunk(
-  'practice/getListToPractice', async ({ email, language }) => {
-    return await fsGetListToPractice({ email, language })
+  'practice/getListToPractice', async ({ uid, language }) => {
+    return await fsGetListToPractice({ uid, language })
   }
 )
 
 export const updatePracticeValues = createAsyncThunk(
-  'practice/updatePracticeValues', async ({ email, language, repracticeDate, id, lvlUnderstand, errors }) => {
-    await fsUpdatePracticeValues({ email, language, repracticeDate, id, lvlUnderstand, errors })
+  'practice/updatePracticeValues', async ({ uid, language, repracticeDate, id, lvlUnderstand, errors }) => {
+    await fsUpdatePracticeValues({ uid, language, repracticeDate, id, lvlUnderstand, errors })
     return {id}
   }
 )

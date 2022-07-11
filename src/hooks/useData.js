@@ -6,7 +6,7 @@ import { defaultGlossary } from "../utils/defaultGlossary"
 
 export const useData = () => {
   const dispatch = useDispatch()
-  const { email } = useSelector(state => state.user)
+  const { uid } = useSelector(state => state.user)
   const { language } = useSelector(state => state.glossary)
   const { filter, list} = useSelector(state => state.myPairs)
   const { listToPractice } = useSelector(state => state.practice)
@@ -21,7 +21,7 @@ export const useData = () => {
 
   useEffect(() => {
     // Solo se ejecutará cuando el usuario acceda al modo prueba
-    if (!email && !list?.length > 0) dispatch(setListToPractice(defaultGlossary))
+    if (!uid && !list?.length > 0) dispatch(setListToPractice(defaultGlossary))
   }, [])
 
   useEffect(() => {
@@ -30,6 +30,6 @@ export const useData = () => {
 
   useEffect(() => {
     // obtiene solo la lista de sentencias a practicar
-    if (email && language) dispatch(getListToPractice({ email, language }))
-  }, [language, email])
+    if (uid && language) dispatch(getListToPractice({ uid, language }))
+  }, [language, uid])
 }

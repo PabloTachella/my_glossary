@@ -2,8 +2,8 @@ import { getFirestore, doc, updateDoc } from "firebase/firestore";
 
 const db = getFirestore()
 
-export async function fsUpdateData({ email, language, changes, id }) {
-  const ref = doc(db, `Users/${email}/${language}/${id}`)
+export async function fsUpdateData({ uid, language, changes, id }) {
+  const ref = doc(db, `Glossaries/${uid}/${language}/${id}`)
 
   try {
     await updateDoc(ref, {...changes})
@@ -12,8 +12,8 @@ export async function fsUpdateData({ email, language, changes, id }) {
     return new Error(e)
   }
 }
-export async function fsUpdatePracticeValues({ email, language, repracticeDate, id, lvlUnderstand, errors }) {
-  const ref = doc(db, `Users/${email}/${language}/${id}`)
+export async function fsUpdatePracticeValues({ uid, language, repracticeDate, id, lvlUnderstand, errors }) {
+  const ref = doc(db, `Glossaries/${uid}/${language}/${id}`)
 
   try {
     await updateDoc(ref, {repracticeDate, lvlUnderstand, errors})

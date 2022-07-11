@@ -4,7 +4,7 @@ import { setList, setListToRender } from "../../../../store/slices/my-pairs"
 
 export const useData = () => {
   const dispatch = useDispatch()
-  const { email } = useSelector(state => state.user)
+  const { uid } = useSelector(state => state.user)
   const { statusSaveChanges, language, glossaryData } = useSelector(state => state.glossary)
   const { filter, list, listToRender } = useSelector(state => state.myPairs)
 
@@ -19,7 +19,7 @@ export const useData = () => {
   }, [list, filter])
 
   return {
-    email,
+    uid,
     statusSaveChanges,
     language,
     listToRender

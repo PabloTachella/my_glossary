@@ -11,7 +11,7 @@ import { setAuthentication } from "../store/slices/user";
 
 import { auth } from "./fbConfig";
 
-const REDIRECT_URL = process.env.REDIRECT_URL 
+const REDIRECT_URL = process.env.REDIRECT_URL
 
 export async function fbLoginUserWithLink(email) {
   const actionCodeSettings = {
@@ -36,9 +36,8 @@ export async function fbAuthenticateUser(email) {
   // Confirm the link is a sign-in with email link.
   if (isSignInWithEmailLink(auth, window.location.href)) {
     try {
-      await signInWithEmailLink(auth, email, window.location.href)
-      // const result = signInWithEmailLink()
-      // const email = result.user.email
+      const result = await signInWithEmailLink(auth, email, window.location.href)
+      return result.user.uid
     } catch (error) {
       return new Error(error)
     }
@@ -52,10 +51,10 @@ export async function fbCheckAutentication() {
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
-      if (user) { 
-        dispatch(setAuthentication({ email: user.email, statusUser: 'succeeded' }))
+      if (user) {
+        dispatch(setAuthentication({ email: user.email, uid: user.uid, statusUser: 'succeeded' }))
       } else {
-        dispatch(setAuthentication({ email: '', statusUser: 'idle' }))
+        dispatch(setAuthentication({ email: '', statusUser: 'idle', uid: null }))
       }
     })
 

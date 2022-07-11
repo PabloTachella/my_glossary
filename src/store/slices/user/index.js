@@ -17,11 +17,13 @@ export const userSlice = createSlice({
     email: '',
     statusUser: 'loading', //'idle' | 'loading' | 'succeeded' | 'failed'
     statusSendMail: 'idle', //'idle' | 'loading' | 'succeeded' | 'failed'
+    uid: null,
     error: null,
   },
   reducers: {
     setAuthentication: (state, action) => {
       state.email = action.payload.email
+      state.uid = action.payload.uid
       state.statusUser = action.payload.statusUser
     },
     setEmail: (state, action) => {
@@ -34,6 +36,7 @@ export const userSlice = createSlice({
         state.statusUser = 'loading'
       })
       .addCase(authenticateUser.fulfilled, (state, action) => {
+        state.uid = action.payload
         state.statusUser = 'succeeded'
       })
       .addCase(authenticateUser.rejected, (state, action) => {

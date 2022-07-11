@@ -7,7 +7,7 @@ export const calcCharsToShow = (totalChars, help) => {
   else return 0
 }
 
-export const signs = ['¿', '?', '¡', '!', ',', '.', ';', ':']
+export const signs = ['¿', '?', '¡', '!', ',', '.', ';', ':', '-', '_', '"']
 
 export const preventRepetition = (arr, length) => {
   const value = generateRandomNum(length)

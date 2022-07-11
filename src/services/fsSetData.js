@@ -2,8 +2,8 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const db = getFirestore()
 
-export async function fsPostData({ email, entry, translation, isSentence, language }) {
-  const ref = `Users/${email}/${language}`
+export async function fsPostData({ uid, entry, translation, isSentence, language }) {
+  const ref = `Glossaries/${uid}/${language}`
   const date = Date.now()
 
   const pair = {

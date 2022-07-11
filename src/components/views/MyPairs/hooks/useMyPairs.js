@@ -18,7 +18,7 @@ export const useMyPairs = () => {
   } = useContext(EditPairsContext)
 
   const {
-    email,
+    uid,
     statusSaveChanges,
     language,
     listToRender
@@ -51,11 +51,11 @@ export const useMyPairs = () => {
 
   const saveChanges = async () => {
     if (listChanges.edits.length > 0) {
-      dispatch(updateData({ edits: listChanges.edits, language, email }))
+      dispatch(updateData({ edits: listChanges.edits, language, uid }))
     }
 
     if (listChanges.deleted.length > 0) {
-      dispatch(deleteData({ ids: listChanges.deleted, language, email }))
+      dispatch(deleteData({ ids: listChanges.deleted, language, uid }))
     }
     setListChanges(initialListChanges)
   }
