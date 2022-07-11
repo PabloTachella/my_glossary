@@ -57,7 +57,7 @@ const Practice = () => {
                 </span>
                 <span className="b-practice--input-container__skeleton" />
               </Box>
-              : loadStatus === 'succeeded' || loadStatus === 'idle' &&
+              : (loadStatus === 'succeeded' || loadStatus === 'idle') &&
               <>
                 <h3 className="b-practice--text-title">¡Bien hecho!</h3>
                 <span className="b-practice--text">
