@@ -95,6 +95,9 @@ export const practiceSlice = createSlice({
   },
   extraReducers(builder) {
     builder
+      .addCase(updatePracticeValues.pending, (state, action) => {
+        state.loadStatus = 'loading'
+      })
       .addCase(updatePracticeValues.fulfilled, (state, action) => {
         const data = [...state.listToPractice]
         const indexToRemove = data.findIndex(el => el.id === action.payload.id)
@@ -102,11 +105,13 @@ export const practiceSlice = createSlice({
         state.listToPractice = data
         state.errors = 0
         state.usedHelp = state.usedHelp >= 1 ? 1 : 0
+        state.loadStatus = 'succeeded'
       })
       .addCase(updatePracticeValues.rejected, (state, action) => {
         alert('Error al actualizar los valores de practica:', action.error.message)
         state.errors = 0
         state.usedHelp = state.usedHelp >= 1 ? 1 : 0
+        state.loadStatus = 'failed'
       })
       .addCase(getListToPractice.pending, (state, action) => {
         state.loadStatus = 'loading'
