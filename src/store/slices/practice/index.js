@@ -88,6 +88,14 @@ export const practiceSlice = createSlice({
     resetPracticeValues: (state, action) => {
       state.statusPractice = 'idle'
       state.usedHelp = state.usedHelp >= 1 ? 1 : 0
+      state.usedHelp = state.usedHelp >= 1 ? 1 : 0
+      state.errors = 0
+      state.loadStatus = 'idle'
+      state.loadError = null
+    },
+    resetPracticeValues: (state, action) => {
+      state.statusPractice = 'idle'
+      state.usedHelp = state.usedHelp >= 1 ? 1 : 0
       state.errors = 0
       state.loadStatus = 'idle'
       state.loadError = null
@@ -138,6 +146,8 @@ export const {
   setUsedHelp,
   incrementErrors,
   setListToPracticeFiltered,
+  resetPractice,
+  resetPracticeValues
   resetPractice,
   resetPracticeValues
 } = practiceSlice.actions

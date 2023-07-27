@@ -2,6 +2,7 @@
 // usedHelp: valor de 0 a 4, donde 4 es la mayor cantidad de ayuda posible usada (actualmente 
 // el máximo valor es 1)
 export const calcRepracticeDate = ({ errors, usedHelp, lvlUnderstand }) => {
+  console.log(errors, usedHelp, lvlUnderstand)
   let newLvlUnderstand
   const MS_IN_A_DAY = 86400000
   lvlUnderstand = parseFloat(lvlUnderstand)
