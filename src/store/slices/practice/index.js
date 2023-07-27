@@ -148,7 +148,5 @@ export const {
   setListToPracticeFiltered,
   resetPractice,
   resetPracticeValues
-  resetPractice,
-  resetPracticeValues
 } = practiceSlice.actions
 export default practiceSlice.reducer
