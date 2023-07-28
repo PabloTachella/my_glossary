@@ -16,7 +16,7 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
     usedHelp,
   } = useSelector(state => state.practice)
   const { language } = useSelector(state => state.glossary)
-  const { email } = useSelector(state => state.user)
+  const { uid } = useSelector(state => state.user)
   const [indexPractice, setIndexPractice] = useState(generateRandomNum(listToPracticeFiltered.length))
   const [alternativeIndex, setAlternativeIndex] = useState(generateRandomNum(19))
 
@@ -80,7 +80,7 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
         const { repracticeDate, newLvlUnderstand } = calcRepracticeDate({ errors, usedHelp, lvlUnderstand })
 
         dispatch(updatePracticeValues({
-          email,
+          uid,
           language,
           repracticeDate,
           id,

@@ -6,7 +6,7 @@ import { useForm } from "../../../hooks/useForm"
 import { useEffect } from 'react';
 
 export const useHandleForm = ({ glossaryData, language }) => {
-  const { email } = useSelector(state => state.user)
+  const { uid } = useSelector(state => state.user)
   const dispatch = useDispatch()
   const {
     entry,
@@ -67,7 +67,7 @@ export const useHandleForm = ({ glossaryData, language }) => {
   }
 
   const saveData = () => {
-    dispatch(postData({ pairsList, language, email }))
+    dispatch(postData({ pairsList, language, uid }))
     toast('¡Exito al guardar!', { autoClose: 2000 })
     resetPairsList()
   }

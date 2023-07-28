@@ -2,10 +2,10 @@ import { getFirestore, collection, getDocs, query, where } from "firebase/firest
 
 const db = getFirestore()
 
-export async function fsGetGlossaryByLanguage(email, language) {
+export async function fsGetGlossaryByLanguage(uid, language) {
   try {
     let data = []
-    const ref = `Users/${email}/${language}`
+    const ref = `Glossaries/${uid}/${language}`
 
     const querySnapshot = await getDocs(collection(db, ref))
     querySnapshot.forEach(doc => {
@@ -18,11 +18,11 @@ export async function fsGetGlossaryByLanguage(email, language) {
   }
 }
 
-export async function fsGetListToPractice({ email, language }) {
+export async function fsGetListToPractice({ uid, language }) {
   try {
     let data = []
     const date = Date.now()
-    const ref = `Users/${email}/${language}`
+    const ref = `Glossaries/${uid}/${language}`
     
     const q = query(collection(db, ref), where("repracticeDate", "<=", date));
 

@@ -4,7 +4,6 @@ import { setLanguage } from "../store/slices/glossary";
 
 export const useInitialData = () => {
   const dispatch = useDispatch()
-  // const { email } = useSelector(state => state.user)
   const { language, glossaryData } = useSelector(state => state.glossary)
 
   const LANGUAGES = [
@@ -32,10 +31,6 @@ export const useInitialData = () => {
   const changeOfLanguage = language => {
     dispatch(setLanguage({ language }))
   }
-
-  // if (language && !glossaryData[language]) {
-  //   dispatch(getGlossaryByLanguage({ email, language }))
-  // }
 
   return {
     LANGUAGES,

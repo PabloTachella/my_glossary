@@ -42,6 +42,7 @@ const Practice = () => {
             <SelectFilter />
           </header>
           <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
+          <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
           {(listToPracticeFiltered?.length > 0) ?
             <PracticeInput
               characterMode={characterMode}
@@ -57,7 +58,7 @@ const Practice = () => {
                 </span>
                 <span className="b-practice--input-container__skeleton" />
               </Box>
-              : loadStatus === 'succeeded' || loadStatus === 'idle' &&
+              : (loadStatus === 'succeeded' || loadStatus === 'idle') &&
               <>
                 <h3 className="b-practice--text-title">¡Bien hecho!</h3>
                 <span className="b-practice--text">

@@ -6,14 +6,14 @@ import { getGlossaryByLanguage } from "../../../store/slices/glossary"
 
 export const useInitialiceData = () => {
   const dispatch = useDispatch()
-  const { email, statusUser } = useSelector(state => state.user)
+  const { uid, statusUser } = useSelector(state => state.user)
   const { language, glossaryData, status } = useSelector(state => state.glossary)
   
   fbCheckAutentication()
   
   useEffect(() => {
     if (language && !glossaryData[language] && statusUser === 'succeeded') {
-      dispatch(getGlossaryByLanguage({ email, language }))
+      dispatch(getGlossaryByLanguage({ uid, language }))
     }
   }, [language, statusUser])
 

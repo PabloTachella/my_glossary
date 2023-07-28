@@ -1,5 +1,5 @@
 // errors: valor de 0 a 3, donde 3 es la peor calificación en la práctica
-// usedHelp: valor de 0 a 3, donde 3 es la mayor cantidad de ayuda posible usada (actualmente 
+// usedHelp: valor de 0 a 4, donde 4 es la mayor cantidad de ayuda posible usada (actualmente 
 // el máximo valor es 1)
 export const calcRepracticeDate = ({ errors, usedHelp, lvlUnderstand }) => {
   console.log(errors, usedHelp, lvlUnderstand)

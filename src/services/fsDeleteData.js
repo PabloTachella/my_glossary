@@ -2,8 +2,8 @@ import { doc, deleteDoc, getFirestore } from "firebase/firestore";
 
 const db = getFirestore()
 
-export async function fsDeleteData({ email, language, id }) {
-  const ref = doc(db, `Users/${email}/${language}/${id}`)
+export async function fsDeleteData({ uid, language, id }) {
+  const ref = doc(db, `Glossaries/${uid}/${language}/${id}`)
 
   try {
     await deleteDoc(ref)
