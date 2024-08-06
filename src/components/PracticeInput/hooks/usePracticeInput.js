@@ -59,9 +59,9 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
   const msg = new SpeechSynthesisUtterance()
   useEffect(() => {
     setTimeout(() => {
-      if (sentence != undefined) {
+      if (sentence != undefined && languages.language1 === language) {
       msg.text = sentence
-      msg.lang = languages.language1 === language ? "en-US" : "es-ES"
+      msg.lang = "en-US"
       window.speechSynthesis.speak(msg)
       }
     }, 700)
@@ -86,6 +86,11 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
     if (isCorrectAnswer) {
       if (isMobile) toast.success('¡Bien hecho! 😀', { autoClose: 2000 })
       else toast('¡Bien hecho! 😀', { autoClose: 2500 })
+
+      // Speech the solution
+      msg.text = translation
+      msg.lang = "en-US"
+      window.speechSynthesis.speak(msg)
 
       if (!isTestMode) {
         const { id, lvlUnderstand, errors: prevErrors } = listToPracticeFiltered[0]
