@@ -55,6 +55,18 @@ export const usePracticeInput = ({ input, setInput, handleFocus }) => {
     return (() => document.removeEventListener("keydown", handleClickedKey))
   }, [input, translation])
 
+  // Speech the sentences to practice
+  const msg = new SpeechSynthesisUtterance()
+  useEffect(() => {
+    setTimeout(() => {
+      if (sentence != undefined) {
+      msg.text = sentence
+      msg.lang = languages.language1 === language ? "en-US" : "es-ES"
+      window.speechSynthesis.speak(msg)
+      }
+    }, 700)
+  }, [sentence])
+
   const preventRecurrences = ({ value, pairsAmount }) => {
     const random = generateRandomNum(pairsAmount)
 
