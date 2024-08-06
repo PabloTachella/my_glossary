@@ -11,7 +11,7 @@ import { setAuthentication } from "../store/slices/user";
 
 import { auth } from "./fbConfig";
 
-const REDIRECT_URL = process.env.REDIRECT_URL
+const REDIRECT_URL = process.env.REACT_APP_REDIRECT_URL
 
 export async function fbLoginUserWithLink(email) {
   const actionCodeSettings = {
