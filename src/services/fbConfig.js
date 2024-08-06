@@ -20,6 +20,8 @@ const config = {
 }
 
 // Initialize Firebase
+console.log("HOLA MUNDO")
+console.log(`apiKey: ${apiKey.length}`)
 const app = initializeApp(config);
 export const auth = getAuth(app)
 export default app

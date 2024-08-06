@@ -42,7 +42,6 @@ const Practice = () => {
             <SelectFilter />
           </header>
           <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
-          <h2 className="b-practice--title">Escribe esto en {languages.language2}</h2>
           {(listToPracticeFiltered?.length > 0) ?
             <PracticeInput
               characterMode={characterMode}
